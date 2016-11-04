@@ -18,6 +18,7 @@ var webpackConfig = merge(baseWebpackConfig, {
   output: {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('js/vue-input-tag.js'),
+    // library: utils.assetsPath('js/vue-input-tag.js'),
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js'),
     libraryTarget: 'umd'
   },
