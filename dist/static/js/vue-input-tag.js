@@ -23,20 +23,20 @@
 
     function o(e) {
       return e && e.__esModule ? e : {
-        "default": e
+        default: e
       }
     }
     var r = n(7),
       a = o(r);
     e.exports = {
-      InputTag: a["default"]
+      InputTag: a.default
     }
   }, function(e, t, n) {
     "use strict";
 
     function o(e) {
       return e && e.__esModule ? e : {
-        "default": e
+        default: e
       }
     }
     Object.defineProperty(t, "__esModule", {
@@ -44,25 +44,25 @@
     });
     var r = n(2),
       a = o(r);
-    t["default"] = {
+    t.default = {
       name: "InputTag",
       props: {
         tags: {
           type: Array,
-          "default": function() {
+          default: function() {
             return []
           }
         },
         placeholder: {
           type: String,
-          "default": ""
+          default: ""
         },
         onChange: {
           type: Function
         },
         readOnly: {
           type: Boolean,
-          "default": !1
+          default: !1
         }
       },
       data: function() {
@@ -87,13 +87,13 @@
           return this.tags.length ? "" : this.placeholder
         },
         tagChange: function() {
-          this.onChange && this.onChange(JSON.parse((0, a["default"])(this.tags)))
+          this.onChange && this.onChange(JSON.parse((0, a.default)(this.tags)))
         }
       }
     }
   }, function(e, t, n) {
     e.exports = {
-      "default": n(3),
+      default: n(3),
       __esModule: !0
     }
   }, function(e, t, n) {
@@ -146,54 +146,55 @@
     var o, r;
     n(10), o = n(1);
     var a = n(8);
-    r = o = o || {}, "object" != typeof o["default"] && "function" != typeof o["default"] || (r = o = o["default"]), "function" == typeof r && (r = r.options), r.render = a.render, r.staticRenderFns = a.staticRenderFns, e.exports = o
-  }, function(module, exports) {
-    module.exports = {
+    r = o = o || {}, "object" != typeof o.default && "function" != typeof o.default || (r = o = o.default), "function" == typeof r && (r = r.options), r.render = a.render, r.staticRenderFns = a.staticRenderFns, e.exports = o
+  }, function(e, t) {
+    e.exports = {
       render: function() {
-        with(this) return _h("div", {
+        var e = this;
+        return e._h("div", {
           staticClass: "vue-input-tag",
-          "class": {
-            "read-only": readOnly
+          class: {
+            "read-only": e.readOnly
           },
           on: {
-            click: function(e) {
-              focusNewTag()
+            click: function(t) {
+              e.focusNewTag()
             }
           }
-        }, [_l(tags, function(e, t) {
-          return _h("span", {
+        }, [e._l(e.tags, function(t, n) {
+          return e._h("span", {
             staticClass: "tag"
-          }, [_h("span", [_s(e)]), readOnly ? _e() : _h("a", {
+          }, [e._h("span", [e._s(t)]), e.readOnly ? e._e() : e._h("a", {
             staticClass: "remove",
             on: {
-              click: function(e) {
-                e.preventDefault(), e.stopPropagation(), remove(t)
+              click: function(t) {
+                t.preventDefault(), t.stopPropagation(), e.remove(n)
               }
             }
           })])
-        }), readOnly ? _e() : _h("input", {
+        }), e.readOnly ? e._e() : e._h("input", {
           directives: [{
             name: "model",
             rawName: "v-model",
-            value: newTag,
+            value: e.newTag,
             expression: "newTag"
           }],
           staticClass: "new-tag",
           attrs: {
-            placeholder: getPlaceholder(),
+            placeholder: e.getPlaceholder(),
             type: "text"
           },
           domProps: {
-            value: _s(newTag)
+            value: e._s(e.newTag)
           },
           on: {
-            keydown: [function(e) {
-              8 !== e.keyCode && 46 !== e.keyCode || (e.stopPropagation(), removeLastTag())
-            }, function(e) {
-              13 === e.keyCode && (e.preventDefault(), e.stopPropagation(), addNew(newTag))
+            keydown: [function(t) {
+              8 !== t.keyCode && 46 !== t.keyCode || (t.stopPropagation(), e.removeLastTag())
+            }, function(t) {
+              13 === t.keyCode && (t.preventDefault(), t.stopPropagation(), e.addNew(e.newTag))
             }],
-            input: function(e) {
-              e.target.composing || (newTag = e.target.value)
+            input: function(t) {
+              t.target.composing || (e.newTag = t.target.value)
             }
           }
         })])
